@@ -14,45 +14,60 @@ class ViewController: UIViewController {
     
     var currentQuestionNum: Int = 0
     
-    let questions: [[String: Any]] = [
-        [
-            "question": "iPhoneアプリを開発する統合環境はZcodeである",
-            "answer": false
-        ],
-        [
-            "question": "Xcode画面の右側にはユーティリティーズがある",
-            "answer": true
-        ],
-        [
-            "question": "UILabelは文字列を表示する際に利用する",
-            "answer": true
-        ]
-    ]
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+       
+        let ud = UserDefaults.standard
+  
+        if (ud.object(forKey: "questions") == nil) {
+            ud.set([], forKey: "questions")
+        }
+ 
         showQuestion()
-        // Do any additional setup after loading the view.
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        showQuestion()
+    }
     
-    @IBAction func tappedNoButton(_ sender: Any) {
+    @IBAction func tappedNoButton(_ sender: UIButton) {
         checkAnswer(yourAnswer: false)
     }
     
-    @IBAction func tappedYesButton(_ sender: Any) {
+    
+    @IBAction func tappedYesButton(_ sender: UIButton) {
         checkAnswer(yourAnswer: true)
     }
     
     func showQuestion() {
-        let question = questions[currentQuestionNum]
+        let ud = UserDefaults.standard
+        let questions:[[String: Any]] = ud.object(forKey: "questions") as! [[String: Any]]
         
-        if let que = question["question"] as? String {
-            questionLabel.text = que
+        if (questions.count > currentQuestionNum) {
+            
+            let question = questions[currentQuestionNum]
+            
+            
+            if let que = question["question"] as? String {
+                
+                questionLabel.text = que
+                
+            }
+        } else {
+            questionLabel.text = "問題がありません｡問題を作りましょう！"
         }
     }
+    
     func checkAnswer(yourAnswer:Bool){
-        let question = questions[currentQuestionNum]
+        let ud = UserDefaults.standard
+        let questions: [[String: Any]] = ud.object(forKey: "questions") as! [[String : Any]]
+        
+        if (questions.count > currentQuestionNum) {
+
+            let question = questions[currentQuestionNum]
         
         if let ans = question["answer"] as? Bool {
             
@@ -71,6 +86,7 @@ class ViewController: UIViewController {
         
         showQuestion()
     }
+        
     func showAlert(message: String) {
         let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
         
@@ -79,4 +95,4 @@ class ViewController: UIViewController {
         present(alert, animated: true, completion: nil)
     }
 }
-
+}
