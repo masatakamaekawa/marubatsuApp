@@ -3,6 +3,7 @@
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19144"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -11,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="marubatsuApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="marubatsuApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -29,7 +30,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="tappedNoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ay2-jp-Giq"/>
+                                    <action selector="tappedNoButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="BUk-gh-B5t"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="U86-ch-sfk">
@@ -41,11 +42,11 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="tappedYesButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="z6R-Q2-ki0"/>
+                                    <action selector="tappedYesButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Ztp-eR-uoY"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jfe-fM-1fg">
-                                <rect key="frame" x="20" y="52" width="374" height="100"/>
+                                <rect key="frame" x="20" y="124" width="374" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="zdN-Qg-fR1"/>
                                 </constraints>
@@ -53,10 +54,20 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yGH-u7-x5e">
+                                <rect key="frame" x="145" y="74" width="124" height="30"/>
+                                <color key="tintColor" systemColor="systemYellowColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="問題を作成する"/>
+                                <connections>
+                                    <segue destination="XBu-N5-vnD" kind="show" id="PKZ-Ro-UxZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Jfe-fM-1fg" firstAttribute="top" secondItem="yGH-u7-x5e" secondAttribute="bottom" constant="20" id="15x-Mm-1Oy"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="U86-ch-sfk" secondAttribute="trailing" constant="20" id="1n4-qJ-E18"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="U86-ch-sfk" secondAttribute="bottom" constant="20" id="52P-JB-NZc"/>
                             <constraint firstItem="U86-ch-sfk" firstAttribute="leading" secondItem="UhC-zF-s44" secondAttribute="trailing" constant="8" id="5uI-KZ-gAm"/>
@@ -65,8 +76,10 @@
                             <constraint firstItem="UhC-zF-s44" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="G85-zQ-PjM"/>
                             <constraint firstItem="U86-ch-sfk" firstAttribute="leading" secondItem="UhC-zF-s44" secondAttribute="trailing" constant="8" id="ac1-E6-H71"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Jfe-fM-1fg" secondAttribute="trailing" constant="20" id="dKd-cp-6bJ"/>
+                            <constraint firstItem="yGH-u7-x5e" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="iwV-vD-Cdm"/>
+                            <constraint firstItem="yGH-u7-x5e" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="30" id="jxD-lT-iDZ"/>
                             <constraint firstItem="Jfe-fM-1fg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="pQP-jw-YGX"/>
-                            <constraint firstItem="Jfe-fM-1fg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="pX3-Zs-21J"/>
+                            <constraint firstItem="Jfe-fM-1fg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="80" id="pX3-Zs-21J"/>
                             <constraint firstItem="U86-ch-sfk" firstAttribute="height" secondItem="UhC-zF-s44" secondAttribute="height" id="sF6-kk-uAc"/>
                         </constraints>
                     </view>
@@ -76,10 +89,90 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="121.73913043478262" y="109.82142857142857"/>
+            <point key="canvasLocation" x="97" y="110"/>
+        </scene>
+        <!--Create View Controller-->
+        <scene sceneID="8C9-Rw-ZaU">
+            <objects>
+                <viewController modalPresentationStyle="fullScreen" id="XBu-N5-vnD" customClass="CreateViewController" customModule="marubatsuApp" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0rU-EI-Rpn">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Oob-6V-VuX">
+                                <rect key="frame" x="145" y="64" width="124" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="TOPに戻る"/>
+                                <connections>
+                                    <action selector="retuenButton:" destination="XBu-N5-vnD" eventType="touchUpInside" id="nrW-a3-183"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="qRH-gO-yRX">
+                                <rect key="frame" x="175.5" y="565" width="63" height="32"/>
+                                <segments>
+                                    <segment title="○"/>
+                                    <segment title="✕"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" name="AccentColor"/>
+                            </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0lt-b6-m9L">
+                                <rect key="frame" x="159" y="661" width="96" height="31"/>
+                                <color key="tintColor" systemColor="systemTealColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="問題を保存"/>
+                                <connections>
+                                    <action selector="saveButton:" destination="XBu-N5-vnD" eventType="touchUpInside" id="Gkk-IM-GaV"/>
+                                </connections>
+                            </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="問題を入力してください" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sPv-W7-IBp">
+                                <rect key="frame" x="38" y="431" width="338" height="34"/>
+                                <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DFb-Xq-4Zr">
+                                <rect key="frame" x="145" y="742" width="124" height="31"/>
+                                <color key="tintColor" systemColor="systemRedColor"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="問題を全て削除"/>
+                                <connections>
+                                    <action selector="deleteButton:" destination="XBu-N5-vnD" eventType="touchUpInside" id="dph-k3-Zyg"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="kAR-gM-6q2"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="kAR-gM-6q2" firstAttribute="trailing" secondItem="Oob-6V-VuX" secondAttribute="trailing" constant="145" id="6rU-hT-1ng"/>
+                            <constraint firstItem="DFb-Xq-4Zr" firstAttribute="centerX" secondItem="0rU-EI-Rpn" secondAttribute="centerX" id="ADd-u5-lD7"/>
+                            <constraint firstItem="qRH-gO-yRX" firstAttribute="centerX" secondItem="0rU-EI-Rpn" secondAttribute="centerX" id="GKS-6g-R4n"/>
+                            <constraint firstItem="sPv-W7-IBp" firstAttribute="centerY" secondItem="0rU-EI-Rpn" secondAttribute="centerY" id="Ii6-oA-tBw"/>
+                            <constraint firstItem="0lt-b6-m9L" firstAttribute="centerX" secondItem="0rU-EI-Rpn" secondAttribute="centerX" id="L6y-MN-BUo"/>
+                            <constraint firstItem="sPv-W7-IBp" firstAttribute="centerX" secondItem="0rU-EI-Rpn" secondAttribute="centerX" id="Mzq-LQ-D5C"/>
+                            <constraint firstItem="Oob-6V-VuX" firstAttribute="top" secondItem="kAR-gM-6q2" secondAttribute="top" constant="20" id="OcB-Ly-iJN"/>
+                            <constraint firstItem="0lt-b6-m9L" firstAttribute="top" secondItem="qRH-gO-yRX" secondAttribute="bottom" constant="65" id="Rg3-RX-VM8"/>
+                            <constraint firstItem="sPv-W7-IBp" firstAttribute="leading" secondItem="kAR-gM-6q2" secondAttribute="leading" constant="38" id="XFd-b0-Gd9"/>
+                            <constraint firstItem="kAR-gM-6q2" firstAttribute="trailing" secondItem="sPv-W7-IBp" secondAttribute="trailing" constant="38" id="XbT-Id-Bed"/>
+                            <constraint firstItem="Oob-6V-VuX" firstAttribute="leading" secondItem="kAR-gM-6q2" secondAttribute="leading" constant="145" id="dPH-ho-HJ0"/>
+                            <constraint firstItem="qRH-gO-yRX" firstAttribute="top" secondItem="sPv-W7-IBp" secondAttribute="bottom" constant="100" id="mcS-T4-AXu"/>
+                            <constraint firstItem="DFb-Xq-4Zr" firstAttribute="top" secondItem="0lt-b6-m9L" secondAttribute="bottom" constant="50" id="wie-7M-LrB"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="jLl-Vn-8zf"/>
+                    <connections>
+                        <outlet property="addTextField" destination="sPv-W7-IBp" id="eFB-se-Cfz"/>
+                        <outlet property="answerButton" destination="qRH-gO-yRX" id="N2L-Kz-nAF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NJd-ub-N0G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="927.536231884058" y="109.82142857142857"/>
         </scene>
     </scenes>
     <resources>
+        <namedColor name="AccentColor">
+            <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
@@ -88,6 +181,12 @@
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.18823529411764706" green="0.69019607843137254" blue="0.7803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemYellowColor">
+            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="tintColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
